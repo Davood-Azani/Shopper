@@ -1,0 +1,70 @@
+@base = https://localhost:7207
+@token = writethebearerToken
+
+
+GET {{base}}/api/products
+
+###
+
+//GET {{base}}/api/products?searchPhrase=react&pageSize=10&pageNumber=3
+GET {{base}}/api/products?pageSize=10&pageNumber=2&sortBy=Price
+
+###
+
+GET {{base}}/api/products/21
+
+###
+
+POST {{base}}/api/products
+Content-Type: application/json
+{
+    "Name": "Something",
+    "Description": "ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Price": 800,
+    "PictureUrl": "images/products/sb-ang1.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 1
+}
+
+
+
+###
+
+DELETE {{base}}/api/products/2
+
+###
+
+PATCH {{base}}/api/products/210
+Content-Type: application/json
+{
+  
+
+    "Name": "Test7",
+    "Description": "ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Price": 800
+}
+
+###
+
+POST {{base}}/api/identity/register
+Content-Type: application/json
+{
+    "email": "owner@test.com",
+    "password": "Password1!"
+}
+
+###
+
+POST {{base}}/api/identity/login
+Content-Type: application/json
+{
+    "email": "test@test.com",
+    "password": "Password1!"
+}
+
+
+###
+
+GET {{base}}/api/products
+Authorization: Bearer {{token}}
+    
